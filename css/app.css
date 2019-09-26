@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('font/quicksand-variablefontwght-webfont.woff2') format('woff2'),
+         url('font/quicksand-variablefontwght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+
+    margin: 0;
+}
+
+button {
+    background: transparent;
+    border: 0px;
+    font-family: 'quicksandlight', sans-serif;
+
+    cursor: pointer;
+}
+
+body .silencer-app-title {
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-family: 'quicksandlight', sans-serif;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+
+    background-color: #D81159;
+}
+
+body .silencer-actions-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    height: 100%;
+}
+
+.silencer-actions-section-action {
+    display: flex;
+
+    align-items: center;
+}
+
+.silencer-actions-section-action.start-record-action {    
+    background-color: #FB3640;
+}
+
+.silencer-actions-section-action .record-action-button {
+    margin: auto;
+
+    font-size: 60px;
+}
+
+.record-action-button.start-record-action-button {
+    color: #F9E900;
+}
+
+.record-action-button.end-record-action-button {
+    color: #FB3640;
+}
+
+.silencer-actions-section-action.end-record-action {
+    background-color: #F9E900;
+}
