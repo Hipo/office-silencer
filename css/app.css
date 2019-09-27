@@ -47,18 +47,44 @@ canvas {
 
 .silencer-image-container {
   position: relative;
-
   display: flex;
+  height: calc(100vh - 70px);
   justify-content: center;
+}
+
+body.shhh .quote-container {
+  display: flex;
+}
+
+.quote-container {
+  position: absolute;
+  right: 171px;
+  top: 26px;
+  background-image: url("/images/Bubble.png"); /* The image used */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  width: 299px;
+  height: 232px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote {
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
+  padding: 25px;
 }
 
 .teardrops {
   position: absolute;
   left: 50%;
-
+  top: -100px;
   display: none;
-
   transform: translateX(calc(-50% - 4px));
+  height: 118%;
 }
 
 body.shhh .teardrops {
@@ -68,10 +94,10 @@ body.shhh .teardrops {
 .finger {
   position: absolute;
   left: 50%;
-
-  transform: translateX(calc(-50% + 56px));
-
+  transform: translateX(calc(-50% - 116px));
   transition: bottom 1s ease;
+
+  height: 60%;
 }
 
 body .silencer-actions-section {
