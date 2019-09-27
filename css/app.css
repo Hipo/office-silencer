@@ -39,6 +39,52 @@ body .silencer-app-title {
     background-color: #D81159;
 }
 
+.slide-container {
+  position: fixed;
+  top: 0;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 6px; /* Specified height */
+  background: #FFFFFF; /* Grey background */
+  outline: none; /* Remove outline */
+  border-radius: 4px;
+  opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #b5c18f; /* Green background */
+  border-radius: 50%;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider-value {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
 canvas {
   position: fixed;
   top: 0;
@@ -47,7 +93,11 @@ canvas {
 
 .silencer-image-container {
   position: relative;
+  background-image: url("../images/yigit.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
+  /* width: 100vw; */
   height: calc(100vh - 70px);
   justify-content: center;
 }
@@ -81,10 +131,13 @@ body.shhh .quote-container {
 .teardrops {
   position: absolute;
   left: 50%;
-  top: -100px;
+  top: -50px;
+
   display: none;
-  transform: translateX(calc(-50% - 4px));
+  
   height: 118%;
+  
+  transform: translateX(calc(-50% - 4px));
 }
 
 body.shhh .teardrops {
@@ -94,9 +147,8 @@ body.shhh .teardrops {
 .finger {
   position: absolute;
   left: 50%;
-  transform: translateX(calc(-50% - 116px));
+  transform: translateX(-275px);
   transition: bottom 1s ease;
-
   height: 60%;
 }
 
