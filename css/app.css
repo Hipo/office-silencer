@@ -23,9 +23,13 @@ button {
 }
 
 body .silencer-app-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 70px;
+
     margin-bottom: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
 
     font-family: 'quicksandlight', sans-serif;
     color: white;
@@ -33,6 +37,10 @@ body .silencer-app-title {
     text-align: center;
 
     background-color: #D81159;
+}
+
+body.canvas-hidden canvas {
+  display: none;
 }
 
 body .silencer-actions-section {

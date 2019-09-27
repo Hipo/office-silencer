@@ -1,34 +1,50 @@
-let song, analyzer, mic;
+let mic, timeout;
+
+const HEADER_HEIGHT = 70;
+
+let data = [];
+const canvasWidth = window.innerWidth;
+const canvasHeight = window.innerHeight - HEADER_HEIGHT;
+const canvasHiddenClass = "canvas-hidden";
+const THRESHOLD = 4.5;
 
 function preload() {
- // song = loadSound(‘assets/lucky_dragons_-_power_melody.mp3’);
+  // song = loadSound(‘assets/lucky_dragons_-_power_melody.mp3’);
 }
+
 function setup() {
- createCanvas(window.innerWidth, window.innerWidth / 3.55);
- // song.loop();
- // Create an Audio input
-console.log(p5.AudioIn);
+  createCanvas(canvasWidth, canvasHeight);
 
- mic = new p5.AudioIn();
- // start the Audio Input.
- // By default, it does not .connect() (to the computer speakers)
- mic.start();
- // create a new Amplitude analyzer
- // analyzer = new p5.Amplitude();
- // Patch the input to an volume analyzer
- // analyzer.setInput(song);
+  mic = new p5.AudioIn();
+  mic.start();
 }
-function draw() {
- background(255);
- // Get the average (root mean square) amplitude
- // let rms = analyzer.getLevel();
- let rms = mic.getLevel();
 
- if (rms> 0.01) {
-    console.log(rms * 100);
- }
- fill(127);
- stroke(0);
- // Draw an ellipse with size based on volume
- ellipse(width / 2, height / 2, 100 + rms * 600, 100 + rms * 600);
+function draw() {
+  background(255);
+
+  let noiseLevel = mic.getLevel() * 100;
+
+  data.push(noiseLevel);
+
+  fill(127);
+  stroke(0);
+  // Draw an ellipse with size based on volume
+  ellipse(canvasWidth / 2, canvasHeight / 2, canvasWidth - 20, noiseLevel * 2);
+}
+
+setInterval(() => {
+  const avr = data.reduce((sum, item) => sum + item, 0) / data.length || 0;
+
+  console.log(avr);
+  if (avr > THRESHOLD) {
+    document.body.classList.add(canvasHiddenClass);
+  } else {
+    document.body.classList.remove(canvasHiddenClass);
+  }
+
+  data = [];
+}, 5000);
+
+function isCanvasHidden() {
+  return Array.from(document.body.classList).includes(canvasHiddenClass);
 }
