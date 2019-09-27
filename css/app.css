@@ -43,6 +43,26 @@ body.canvas-hidden canvas {
   display: none;
 }
 
+.silencer-image-container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* body.canvas-hidden .silencer-image-container {
+  display: block;
+} */
+
+.finger {
+  position: absolute;
+  left: 50%;
+
+  transform: translateX(calc(-50% + 56px));
+
+  transition: bottom 1s ease;
+}
+
 body .silencer-actions-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
