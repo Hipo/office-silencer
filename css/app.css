@@ -12,6 +12,8 @@ body {
     overflow: hidden;
 
     margin: 0;
+
+    background-color: black;
 }
 
 button {
@@ -26,17 +28,13 @@ body .silencer-app-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     height: 70px;
-
     margin-bottom: 0;
-
     font-family: 'quicksandlight', sans-serif;
     color: white;
     font-size: 40px;
     text-align: center;
-
-    background-color: #D81159;
+    background-color: black;
 }
 
 .slide-container {
@@ -61,12 +59,16 @@ body .silencer-app-title {
   transition: opacity .2s;
 }
 
+.logo {
+  height: 50px;
+}
+
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #b5c18f; /* Green background */
+  background: #E2203E; /* Green background */
   border-radius: 50%;
   cursor: pointer; /* Cursor on hover */  
 }
@@ -92,7 +94,7 @@ body .silencer-app-title {
 .slider-value {
   margin-left: 10px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   color: #FFFFFF;
 }
 
@@ -104,9 +106,6 @@ canvas {
 
 .silencer-image-container {
   position: relative;
-  background-image: url("../images/yigit.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   /* width: 100vw; */
   height: calc(100vh - 70px);
@@ -117,10 +116,50 @@ body.shhh .quote-container {
   display: flex;
 }
 
+body.shhh .fire {
+  display: block;
+}
+
+.fire {
+  position: absolute;
+  top: 122px;
+
+  display: none;
+
+  width: 200px;
+}
+
+.fire.left {
+  transform: translateX(-173px) rotate(-62deg);
+}
+
+.fire.right {
+  top: 102px;
+  transform: translateX(204px) rotate(62deg);
+}
+
+.yigit,
+.yigit_angry {
+  width: 100%;
+  height: 100%;
+}
+
+.yigit_angry {
+  display: none;
+}
+
+body.shhh .yigit {
+  display: none;
+}
+
+body.shhh .yigit_angry {
+  display: block;
+}
+
 .quote-container {
   position: absolute;
-  right: 171px;
-  top: 26px;
+  right: 129px;
+  top: 47px;
   background-image: url("/images/Bubble.png"); /* The image used */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -138,22 +177,6 @@ body.shhh .quote-container {
   font-weight: bold;
   font-size: 26px;
   padding: 25px;
-}
-
-.teardrops {
-  position: absolute;
-  left: 50%;
-  top: -50px;
-
-  display: none;
-  
-  height: 118%;
-  
-  transform: translateX(calc(-50% - 4px));
-}
-
-body.shhh .teardrops {
-  display: block;
 }
 
 .finger {

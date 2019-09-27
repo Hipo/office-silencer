@@ -6,12 +6,13 @@ let data = [];
 const canvasWidth = 400;
 const canvasHeight = 70;
 const avrOverThresholdClass = "shhh";
-const MAX_HAND_BOTTOM = -45;
+const MAX_HAND_BOTTOM = -5;
 
 const handImg = document.querySelector(".finger");
 const quoteParag = document.querySelector(".quote");
 
 let shouldStopHandAnimation = false;
+
 const RANDOM_YIGIT_QUOTES = [
   "Arkadaşlar sessiz olalım...",
   "Merhaba kardeşim! Klima için mi geldiniz?",
@@ -42,16 +43,11 @@ function draw() {
 
   data.push(noiseLevel);
 
-  background("rgb(216,17,89)");
-  fill(255);
+  background("#E2203E");
+  fill("255");
   stroke(0);
   // Draw an ellipse with size based on volume
-  ellipse(
-    canvasWidth / 2,
-    canvasHeight / 2,
-    canvasWidth - 20,
-    noiseLevel * 2
-  );
+  ellipse(canvasWidth / 2, canvasHeight / 2, canvasWidth - 20, noiseLevel * 2);
 
   if (!shouldStopHandAnimation && handImg) {
     if (noiseLevel < 4) {
@@ -91,7 +87,3 @@ setInterval(() => {
 
   data = [];
 }, 5000);
-
-function isCanvasHidden() {
-  return Array.from(document.body.classList).includes(canvasHiddenClass);
-}
