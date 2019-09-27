@@ -3,9 +3,9 @@ let mic, timeout;
 const HEADER_HEIGHT = 70;
 
 let data = [];
-const canvasWidth = window.innerWidth;
-const canvasHeight = window.innerHeight - HEADER_HEIGHT;
-const canvasHiddenClass = "canvas-hidden";
+const canvasWidth = 340;
+const canvasHeight = 70;
+const avrOverThresholdClass = "shhh";
 const THRESHOLD = 4.5;
 const MAX_HAND_BOTTOM = 107;
 const handImg = document.querySelector(".finger");
@@ -23,18 +23,16 @@ function setup() {
 }
 
 function draw() {
-  background(255);
-
   let noiseLevel = mic.getLevel() * 100;
 
   data.push(noiseLevel);
 
-  // fill(127);
-  // stroke(0);
+  background("rgb(216,17,89)");
+  fill(127);
+  stroke(0);
   // Draw an ellipse with size based on volume
-  // ellipse(canvasWidth / 2, canvasHeight / 2, canvasWidth - 20, noiseLevel * 2);
+  ellipse(canvasWidth / 2, canvasHeight / 2, canvasWidth - 20, noiseLevel * 2);
 
-  console.log(noiseLevel)
   if (!shouldStopHandAnimation && handImg) {
     if (noiseLevel < 4) {
       handImg.style.bottom = -350;
@@ -61,10 +59,10 @@ setInterval(() => {
   if (avr > THRESHOLD) {
     handImg.style.bottom = MAX_HAND_BOTTOM;
     shouldStopHandAnimation = true;
-    // document.body.classList.add(canvasHiddenClass);
+    document.body.classList.add(avrOverThresholdClass);
   } else {
     shouldStopHandAnimation = false;
-    // document.body.classList.remove(canvasHiddenClass);
+    document.body.classList.remove(avrOverThresholdClass);
   }
 
   data = [];

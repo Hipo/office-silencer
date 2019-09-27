@@ -39,8 +39,10 @@ body .silencer-app-title {
     background-color: #D81159;
 }
 
-body.canvas-hidden canvas {
-  display: none;
+canvas {
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 .silencer-image-container {
@@ -50,9 +52,18 @@ body.canvas-hidden canvas {
   justify-content: center;
 }
 
-/* body.canvas-hidden .silencer-image-container {
+.teardrops {
+  position: absolute;
+  left: 50%;
+
+  display: none;
+
+  transform: translateX(calc(-50% - 4px));
+}
+
+body.shhh .teardrops {
   display: block;
-} */
+}
 
 .finger {
   position: absolute;
